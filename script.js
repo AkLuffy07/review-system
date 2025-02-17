@@ -43,9 +43,12 @@ allStars.forEach((star, index) => {
 
 formatDateTime = () => {
     const date = new Date();
-    const isoString = date.toISOString();
-    const [year, month, day] = isoString.split('T')[0].split('-');
+    const day = String(date.getDate()).padStart(2, '0');
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const year = date.getFullYear();
     const formattedDate = `${day}/${month}/${year}`;
+    console.log(formattedDate);
+    
     const formatter = new Intl.DateTimeFormat('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
     const formattedTime = formatter.format(date);
     return `${formattedDate} ${formattedTime}`
@@ -53,7 +56,7 @@ formatDateTime = () => {
 
 reviewForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    if(currentRating === 0) {
+    if(currentRating === 0 || textArea.value === '') {
         return ;
     }
     userReview = {
@@ -77,7 +80,10 @@ reviewForm.addEventListener('submit', (e) => {
     `
 
     const reviewContainer = document.querySelector('.review-container');
-    reviewContainer.innerHTML += userReviewHTML;
+    reviewContainer.insertAdjacentHTML('afterbegin', userReviewHTML);
+
+    textArea.value = '';
+    updateStars(0);
 
     console.log("userReview: ", userReview);
 

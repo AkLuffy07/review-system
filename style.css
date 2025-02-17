@@ -5,17 +5,33 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    height: 100vh;
+}
+
+.container {
+    height: 100%;
 }
 
 .navbar {
     display: flex;
     justify-content: space-between;
-    background-color: #858585;
-    padding: 5px 10px;
+    align-items: center;
+    background-color: #6b6b6b;
+    padding: 5px 10px 5px 20px;
+    height: 3%;
+
+    label {
+        font-weight: 600;
+    }
 }
 
 main {
     position: relative;
+    height: 80%;
+}
+
+footer {
+    height: 15%;
 }
 
 .review_body {
@@ -27,22 +43,29 @@ main {
 .review-input {
     display: flex;
     flex-direction: column;
-    padding: 10px;
+    padding: 20px 25px;
     width: 50%;
     height: 100%;
-    border-right: #ffffff solid 1px;
 }
 #text-area {
     width: 100%;
+    outline: none;
+    border-radius: 5px;
+    border: none;
 }
 
 .rating_star {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     margin: 10px 0;
 
     i {
         cursor: pointer;
+        font-size: 30px;
+
+        &:hover {
+            opacity: 0.8;
+        }
     }
 }
 
@@ -66,10 +89,11 @@ main {
 
 .review-container {
     width: 50%;
-    padding: 10px;
+    padding: 20px 10px;
     display: flex;
     flex-direction: column;
     gap: 10px;
+    overflow: auto;
 }
 .review_content {
     padding: 10px;
@@ -82,7 +106,8 @@ main {
     align-items: center;
 }
 .date_time_text {
-    font-size: 10px;
+    font-size: 9px;
+    font-style: italic;
 }
 .review_date {
     display: flex;
@@ -102,37 +127,25 @@ main {
     max-height: 60px;
     overflow: auto;
     margin-right: 5px;
+    font-size: 14px;
 }
 
-.error_msg {
-    position: absolute;
-    bottom: 0;
-    left: 10px;
-    background-color: #e29726ee;
-    border-radius: 5px;
+footer {
+    background-color: #3d3d3d;
+}
+.footer_body {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
-    color: #000000;
-    padding: 5px 10px;
+    height: 100%;
+}
 
-    .error_text {
-        margin: 0;
-        font-size: 12px;
-        font-weight: 600;
-    }
+.footer_content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-    .error_close {
-        border: none;
-        background-color: transparent;
-        text-align: end;
-        color: #831818;
-        margin-left: 5px;
-        cursor: pointer;
-
-        &:hover {
-            background-color: #a36c18ee;
-            border-radius: 5px;
-        }
-    }
+.footer_icon {
+    text-decoration: none;
 }
